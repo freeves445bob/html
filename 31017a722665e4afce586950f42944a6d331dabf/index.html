@@ -2,6 +2,139 @@
 <head>
 <title>Freddie's HTML</title>
 
+
+<script>
+  function restoreColor(){
+  if (localStorage.bgColor){
+    changeBodyColor(localStorage.bgColor);
+  }
+  if (localStorage.txtColor){
+    changeTxtColor(localStorage.txtColor);
+  }
+  if (localStorage.headColor){
+  changeHeadingColor(localStorage.headColor);
+  }
+  if (localStorage.lnkColor){
+    changeLinkColor(localStorage.lnkColor);
+  }
+  if (localStorage.fontSize){
+    changeFontSize(localStorage.fontSize);
+  }
+  }
+  function changeTxtColor(color){
+    localStorage.txtColor = color;
+    document.body.style.color = color;
+    }
+    
+  
+  function changeBodyColor(color){
+  localStorage.bgColor = color;
+    changeLinkColor("yellow")
+    document.body.style.backgroundColor = color;
+    if (color == "white"){
+    document.body.style.color = "black";
+    changeLinkColor("blue");
+    }
+    else if (color == "black"){
+    document.body.style.color = "white";
+    }
+    else if (color == "yellow"){
+    document.body.style.color = "black";
+    changeLinkColor("blue");
+    }
+    else if (color == "purple"){
+    document.body.style.color = "white";  
+    }
+    else if (color == "blue"){
+    document.body.style.color = "white";
+    }
+    else if (color == "green"){
+    document.body.style.color = "black";  
+    changeLinkColor("blue");
+    }
+    else if (color == "orange"){
+    changeLinkColor("blue");
+    }
+    
+    
+  }
+  
+  function toggleShare() {
+    var x = document.getElementById("share");
+    if (x.style.display === "none") {
+    x.style.display = "block";
+    }
+     else {
+    x.style.display = "none";
+    }
+  }
+  
+  
+  
+  function changeLinkColor(color){
+    localStorage.lnkColor = color;
+    var links = document.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++){
+    links[i].style.color = color;
+    }
+    
+    
+  }
+  
+  function changeHeadingColor(color){
+    localStorage.headColor = color;
+    var h1s = document.getElementsByTagName("h1");
+    var h2s = document.getElementsByTagName("h2");
+    var h3s = document.getElementsByTagName("h3");
+    for (var i = 0; i < h1s.length; i++){
+     h1s[i].style.color = color;
+    }
+    for (var i = 0; i < h2s.length; i++){
+     h2s[i].style.color = color;
+    }
+    for (var i = 0; i < h3s.length; i++){
+     h3s[i].style.color = color;
+    }
+  }
+  
+  function restoreBgColor(){
+  if (localStorage.bgColor){
+    changeBodyColor(localStorage.bgColor);
+  }
+  if (localStorage.txtColor){
+    changeTxtColor(localStorage.txtColor);
+  }
+  if (localStorage.headColor){
+  changeHeadingColor(localStorage.headColor);
+  }
+  if (localStorage.lnkColor){
+    changeLinkColor(localStorage.lnkColor);
+  }
+  if (localStorage.fontSize){
+    changeFontSize(localStorage.fontSize);
+  }
+  }
+    
+  
+  function toggleMenu(){
+    if (document.getElementById("topmenu").innerHTML != ''){
+    document.getElementById("topmenu").innerHTML = '';
+    }
+  else{
+    document.getElementById("topmenu").innerHTML = list;
+  }
+  }
+  
+  function changeFontSize(size){
+  localStorage.fontSize = size;
+  document.body.style.fontSize = size;
+  }
+    
+  
+  window.onload = restoreColor;
+  </script>
+  
+
 </head>
 
 <body style="background-color:green;">
@@ -14,5 +147,63 @@
        
        
        <a href="https://www.ferdblob.ga"> next website </a>
-</body>
+       <h2 id="appear">Appearance</h2>
+       We have put together some buttons below to help you customize the look of this page.
+       <h3>Background colour</h3>
+       <form>
+       <input name="changeColor" type="radio" onClick="changeBodyColor('red');">Red</input>
+       <input name="changeColor" type="radio" onClick="changeBodyColor('blue');">Blue</input>
+       <input name="changeColor" type="radio" onClick="changeBodyColor('yellow');">Yellow</input>
+       <input name="changeColor" type="radio" onClick="changeBodyColor('black');">Black</input>
+       <input name="changeColor" type="radio" onClick="changeBodyColor('white');">White</input>
+       <input name="changeColor" type="radio" onClick="changeBodyColor('purple');">Purple</input>
+       <input name="changeColor" type="radio" onClick="changeBodyColor('green');">Green</input>
+       <input name="changeColor" type="radio" onClick="changeBodyColor('pink');">Pink</input>
+       <input name="changeColor" type="radio" onClick="changeBodyColor('orange');">Orange</input>
+       <input name="changeColor" type="radio" onClick="changeBodyColor('brown');">Brown</input>
+       
+       </form>
+       <br/>
+       <h3>Font size</h3>
+       <form>
+       <input name="changeFont" type="radio" onClick="changeFontSize('20px');">Standard</input>
+       <input name="changeFont" type="radio" onClick="changeFontSize('30px');">Large</input>
+       <input name="changeFont" type="radio" onClick="changeFontSize('40px');">Largest</input>
+       </form>
+       <br/>
+       <h3>Text colour</h3>
+       <form>
+         <input name="changeColorText" type="radio" onClick="changeTxtColor('red');">Red</input>
+         <input name="changeColorText" type="radio" onClick="changeTxtColor('blue');">Blue</input>
+         <input name="changeColorText" type="radio" onClick="changeTxtColor('yellow');">Yellow</input>
+         <input name="changeColorText" type="radio" onClick="changeTxtColor('black');">Black</input>
+         <input name="changeColorText" type="radio" onClick="changeTxtColor('white');">White</input>
+       </form>
+         
+       <br/>
+       <h3>Hyperlink colour</h3>
+       <form>
+       <input name="changeLinks" type="radio" onClick="changeLinkColor('Yellow');">Yellow</input>
+       <input name="changeLinks" type="radio" onClick="changeLinkColor('Green');">Green</input>
+       <input name="changeLinks" type="radio" onClick="changeLinkColor('Blue');">Blue</input>
+       <input name="changeLinks" type="radio" onClick="changeLinkColor('purple');">Purple</input>
+       <input name="changeLinks" type="radio" onClick="changeLinkColor('orange');">Orange</input>
+       <input name="changeLinks" type="radio" onClick="changeLinkColor('white');">White</input>
+       <input name="changeLinks" type="radio" onClick="changeLinkColor('Black');">Black</input>
+       </form>
+       <br/>
+       <h3>Heading colour</h3>
+       <form>
+         <input name="changeHeadings" type="radio" onClick="changeHeadingColor('Yellow');">Yellow</input>
+         <input name="changeHeadings" type="radio" onClick="changeHeadingColor('red');">Red</input>
+         <input name="changeHeadings" type="radio" onClick="changeHeadingColor('blue');">Blue</input>
+         <input name="changeHeadings" type="radio" onClick="changeHeadingColor('white');">White</input>
+         <input name="changeHeadings" type="radio" onClick="changeHeadingColor('black');">Black</input>
+       
+       </form>
+       <br/>
+       
+       <br/>We recommend you do not set the background and the link colour to the same thing, as the links wil disappear from view.<br/>Whenever you change the background colour the link colour is automatically set, so we recommend you change background colour and then link colour
+       
+      </body>
 </html>
