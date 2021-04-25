@@ -21,8 +21,6 @@
     email = email.split("@")[0];
     if (allowList.includes(email)){
       document.getElementById("content").setAttribute("class", "visible")
-      name = profile.getName();
-      document.getElementById("welcome").innerHTML = "Welcome, "+name;
   } 
     else{
       document.getElementById("content").setAttribute("class", "visible")
