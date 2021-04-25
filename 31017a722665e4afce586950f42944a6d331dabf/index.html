@@ -14,9 +14,21 @@
 </style>
 
 <script>
+  var allowList = ["003059", "24936"]
   function onSignIn(googleUser){
-    document.getElementById("content").setAttribute("class", "visible")
+    var profile = googleUser.getBasicProfile();
+    email = profile.getEmail();
+    email = email.split("@")[0];
+    if (allowList.includes(email)){
+      document.getElementById("content").setAttribute("class", "visible")
+  } 
+    else{
+      document.getElementById("content").setAttribute("class", "visible")
+  document.getElementById("content").innerHTML = "You are not authorised to continue. Please contact us and ask to be added to the allowed list of student numbers."
   }
+    }
+    }
+    
 
   function restoreColor(){
   if (localStorage.bgColor){
