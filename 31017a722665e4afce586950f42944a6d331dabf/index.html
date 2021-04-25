@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <head>
 <title>Freddie's HTML</title>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="635204017020-tm6u2ee9r5otqba6qlq5uublpn655ddp.apps.googleusercontent.com">
 
+<style>
+.hidden{
+  visibility: hidden;
+}
+.visible{
+  visibility: visible;
+}
+</style>
 
 <script>
+  function onSignIn(googleUser){
+    document.getElementById("content").setattribute("class", "visible")
+  }
+
   function restoreColor(){
   if (localStorage.bgColor){
     changeBodyColor(localStorage.bgColor);
@@ -138,7 +152,9 @@
 </head>
 
 <body style="background-color:green;">
+  <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div>    
 
+  <div id="content" class="hidden">
   <p style= "font-family:arial;color:red;"> welcome to the fredablog we are here to talk about life </p>       
        
   <img src="/IMG-0801.jpg" alt="Freddie's face"/> 
@@ -204,6 +220,6 @@
        <br/>
        
        <br/>We recommend you do not set the background and the link colour to the same thing, as the links wil disappear from view.<br/>Whenever you change the background colour the link colour is automatically set, so we recommend you change background colour and then link colour
-       
+       </div>div>
       </body>
 </html>
