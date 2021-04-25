@@ -15,12 +15,16 @@
 
 <script>
   var allowList = ["003059", "24936"]
+  var name = "";
+  
   function onSignIn(googleUser){
     var profile = googleUser.getBasicProfile();
     email = profile.getEmail();
+    name = profile.getName();
     email = email.split("@")[0];
     if (allowList.includes(email)){
       document.getElementById("content").setAttribute("class", "visible")
+document.getElementById("welcome").innerHTML = "Welcome, "+name;
   } 
     else{
       document.getElementById("content").setAttribute("class", "visible")
