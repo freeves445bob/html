@@ -21,6 +21,8 @@
     email = email.split("@")[0];
     if (allowList.includes(email)){
       document.getElementById("content").setAttribute("class", "visible")
+      name = profile.getName();
+      document.getElementById("welcome").innerHTML = "Welcome, "+name;
   } 
     else{
       document.getElementById("content").setAttribute("class", "visible")
@@ -167,7 +169,8 @@
   <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true"></div>    
 
   <div id="content" class="hidden">
-  <p style= "font-family:arial;color:red;"> welcome to the fredablog we are here to talk about life </p>       
+<div id="welcome"></div>
+    <p style= "font-family:arial;color:red;"> welcome to the fredablog we are here to talk about life </p>       
        
   <img src="/IMG-0801.jpg" alt="Freddie's face"/> 
        
