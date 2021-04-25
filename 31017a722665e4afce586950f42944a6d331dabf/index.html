@@ -16,15 +16,17 @@
 <script>
   var allowList = ["003059", "24936"]
   var name = "";
-  
+var givenName = "";
+
   function onSignIn(googleUser){
     var profile = googleUser.getBasicProfile();
     email = profile.getEmail();
     name = profile.getName();
+    givenName = profile.getGivenName();
     email = email.split("@")[0];
     if (allowList.includes(email)){
       document.getElementById("content").setAttribute("class", "visible")
-document.getElementById("welcome").innerHTML = "Welcome, "+name;
+document.getElementById("welcome").innerHTML = "Hi "+givenName;
   } 
     else{
       document.getElementById("content").setAttribute("class", "visible")
@@ -172,6 +174,7 @@ document.getElementById("welcome").innerHTML = "Welcome, "+name;
 
   <div id="content" class="hidden">
 <div id="welcome"></div>
+    <br/>
     <p style= "font-family:arial;color:red;"> welcome to the fredablog we are here to talk about life </p>       
        
   <img src="/IMG-0801.jpg" alt="Freddie's face"/> 
